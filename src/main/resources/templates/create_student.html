@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Student Managment System</title>
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	</head>
+	<body>
+		<!--NAVBAR STARTS HERE-->
+		<ul class="nav justify-content-center">
+  			<li class="nav-item">
+    			<a class="nav-link active" aria-current="page"  th:href="@{/students}">Home</a>
+  			</li>
+		</ul>
+		<!--NAVBAR FINISH HERE-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+					<h1 class="text-center">Create New Student</h1>
+				</div>
+				<div class="card-body">
+					<form th:action="@{/students}" th:object="${student}" method="POST">
+						<div class="form-group">
+							<label>Student First Name</label>
+							<input 
+							type="text" 
+							name="firstName" 
+							th:field="*{firstName}"
+							placeholder="Enter Student First Name"
+							class="form-control"
+							/>
+						</div>
+						<div class="form-group">
+							<label>Student Last Name</label>
+							<input 
+							type="text" 
+							name="lastName" 
+							th:field="*{lastName}"
+							placeholder="Enter Student Last Name"
+							class="form-control"
+							/>
+						</div>
+						<div class="form-group">
+							<label>Student Email</label>
+							<input 
+							type="text" 
+							name="email" 
+							th:field="*{email}"
+							placeholder="Enter Student Email"
+							class="form-control"
+							/>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
